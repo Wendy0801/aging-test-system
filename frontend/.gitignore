@@ -1,0 +1,35 @@
+# 依赖目录（体积最大，必须忽略）
+node_modules/
+.pnp/
+.pnp.js
+
+# 构建输出目录
+dist/
+build/
+out/
+.vite/              # Vite 构建缓存
+
+# 本地环境变量（包含密钥，严禁上传）
+.env.local
+.env.*.local
+*.local
+
+# 日志文件
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 测试覆盖率
+coverage/
+
+# IDE 配置（建议忽略，避免和同事冲突）
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 系统文件（如果根目录没配，这里兜底）
+.DS_Store
+Thumbs.db
