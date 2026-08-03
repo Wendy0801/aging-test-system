@@ -28,7 +28,6 @@
       </el-col>
     </el-row>
 
-    <el-divider />
 
     <h2>当前进行中的测试</h2>
     <el-table :data="ongoingTasks" style="width: 100%">

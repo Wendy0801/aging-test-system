@@ -57,7 +57,7 @@ export default {
         localStorage.setItem('user', JSON.stringify(res.data))
         axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.id}`
         ElMessage.success('登录成功')
-        router.push('/dashboard')
+        router.push('/container')
       } catch (error) {
         ElMessage.error(error.response?.data?.error || '登录失败')
       }
