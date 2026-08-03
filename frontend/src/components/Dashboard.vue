@@ -1,5 +1,6 @@
 <template>
   <div>
+  
     <h2>测试箱实时状态</h2>
     <el-row :gutter="20">
       <el-col :span="8" v-for="chamber in chambers" :key="chamber.id">
