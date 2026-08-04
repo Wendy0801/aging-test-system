@@ -1,61 +1,17 @@
 <template>
   <div>
-    <h2>我的测试任务</h2>
-    
-    <el-card style="margin-bottom: 20px">
-      <template #header>
-        <span>新建测试申请</span>
-      </template>
-      <el-form :model="newTask" label-width="100px">
-        <el-form-item label="项目名称">
-          <el-input v-model="newTask.project_name" />
-        </el-form-item>
-        <el-form-item label="测试描述">
-          <el-input type="textarea" v-model="newTask.description" />
-        </el-form-item>
-        <el-form-item label="预计结束时间">
-          <el-date-picker v-model="newTask.expected_end_time" type="datetime" placeholder="选择时间" />
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="createTask">提交申请</el-button>
-        </el-form-item>
-      </el-form>
-    </el-card>
-
-    <el-tabs v-model="activeTab">
-      <el-tab-pane label="等待中" name="waiting">
-        <el-table :data="waitingTasks">
-          <el-table-column prop="project_name" label="项目名称" />
-          <el-table-column prop="description" label="描述" />
-          <el-table-column prop="created_at" label="申请时间" :formatter="formatDate" />
-          <el-table-column label="操作">
-            <template #default="{ row }">
-              <el-button size="small" type="danger" @click="cancelTask(row.id)">取消</el-button>
-            </template>
-          </el-table-column>
-        </el-table>
-      </el-tab-pane>
-      <el-tab-pane label="进行中" name="ongoing">
-        <el-table :data="ongoingTasks">
-          <el-table-column prop="project_name" label="项目名称" />
-          <el-table-column prop="chamber_number" label="测试箱号" />
-          <el-table-column label="进度">
-            <template #default="{ row }">
-              <el-progress :percentage="row.progress" />
-            </template>
-          </el-table-column>
-          <el-table-column prop="start_time" label="开始时间" :formatter="formatDate" />
-        </el-table>
-      </el-tab-pane>
-      <el-tab-pane label="已完成" name="completed">
-        <el-table :data="completedTasks">
-          <el-table-column prop="project_name" label="项目名称" />
-          <el-table-column prop="chamber_number" label="使用箱号" />
-          <el-table-column prop="result_text" label="测试结果" />
-          <el-table-column prop="actual_end_time" label="完成时间" :formatter="formatDate" />
-        </el-table>
-      </el-tab-pane>
-    </el-tabs>
+    <h2>当前进行中的测试</h2>
+    <el-table :data="ongoingTasks" style="width: 100%">
+      <el-table-column prop="project_name" label="项目名称" />
+      <el-table-column prop="owner_name" label="负责人" />
+      <el-table-column prop="chamber_number" label="使用箱号" />
+      <el-table-column label="进度">
+        <template #default="{ row }">
+          <el-progress :percentage="row.progress" />
+        </template>
+      </el-table-column>
+      <el-table-column prop="start_time" label="开始时间" :formatter="formatDate" />
+    </el-table>
   </div>
 </template>
 

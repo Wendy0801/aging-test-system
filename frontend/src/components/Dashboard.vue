@@ -29,18 +29,7 @@
     </el-row>
 
 
-    <h2>当前进行中的测试</h2>
-    <el-table :data="ongoingTasks" style="width: 100%">
-      <el-table-column prop="project_name" label="项目名称" />
-      <el-table-column prop="owner_name" label="负责人" />
-      <el-table-column prop="chamber_number" label="使用箱号" />
-      <el-table-column label="进度">
-        <template #default="{ row }">
-          <el-progress :percentage="row.progress" />
-        </template>
-      </el-table-column>
-      <el-table-column prop="start_time" label="开始时间" :formatter="formatDate" />
-    </el-table>
+    
   </div>
 </template>
 
